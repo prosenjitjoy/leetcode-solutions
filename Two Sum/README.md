@@ -36,11 +36,11 @@ You can return the answer in any order.
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/947223196/)
+# [Solution in go](https://leetcode.com/submissions/detail/947223776/)
 
 ```go
 func twoSum(nums []int, target int) []int {
-    m := make(map[int]int, 2)
+    m := map[int]int{}
     for i, num := range nums {
         if val, ok := m[target - num]; ok {
             return []int{i, val}
