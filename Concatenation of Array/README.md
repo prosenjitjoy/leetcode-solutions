@@ -32,13 +32,10 @@ Return _the array_ `ans`.
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/947257542/)
+# [Solution in go](https://leetcode.com/submissions/detail/947258261/)
 
 ```go
 func getConcatenation(nums []int) []int {
-    ans := []int{}
-    ans = append(ans, nums...)
-    ans = append(ans, nums...)
-    return ans
+    return append(nums, nums...)
 }
 ```
