@@ -23,10 +23,13 @@ An **Anagram** is a word or phrase formed by rearranging the letters of a differ
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/947241608/)
+# [Solution in go](https://leetcode.com/submissions/detail/947244759/)
 
 ```go
 func isAnagram(s string, t string) bool {
+    if len(s) != len(t) {
+        return false
+    }
     m1 := map[rune]int{}
     m2 := map[rune]int{}
     for _, val := range s {
@@ -35,9 +38,7 @@ func isAnagram(s string, t string) bool {
     for _, val := range t {
         m2[val]++
     }
-    if len(m1) != len(m2) {
-        return false
-    }
+
     for _, val := range s {
         if m1[val] != m2[val] {
             return false
