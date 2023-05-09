@@ -31,22 +31,19 @@ After doing so, return the array.
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/947273205/)
+# [Solution in go](https://leetcode.com/submissions/detail/947287225/)
 
 ```go
 func replaceElements(arr []int) []int {
-    length := len(arr)
-    ans := make([]int, length)
-    max := arr[length-1]
-
-    for i := length-1; i>=0; i-- {
+    max := -1
+    for i := len(arr)-1; i >= 0; i-- {
+        tmp := max
         if arr[i] > max {
             max = arr[i]
         }
-        ans[i] = max
+        arr[i] = tmp
     }
-    ans = ans[1:]
-    ans = append(ans, -1)
-    return ans
+    return arr
 }
+
 ```
