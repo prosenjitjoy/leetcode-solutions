@@ -24,7 +24,7 @@ Given an integer array `nums`, return `true` if any value appears **at least twi
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/947226733/)
+# [Solution in go](https://leetcode.com/submissions/detail/947721358/)
 
 ```go
 func containsDuplicate(nums []int) bool {
