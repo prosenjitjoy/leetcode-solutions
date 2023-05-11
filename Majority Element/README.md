@@ -24,22 +24,23 @@ The majority element is the element that appears more than `⌊n / 2⌋` times. 
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/948182566/)
+# [Solution in go](https://leetcode.com/submissions/detail/948186933/)
 
 ```go
 func majorityElement(nums []int) int {
-    m := map[int]int{}
+    count := -1
+    res := -1
+
     for _, num := range nums {
-        m[num]++
-    }
-    max := -1
-    major := -1
-    for key, val := range m {
-        if val > max {
-            max = val
-            major = key
+        if count < 0 {
+            res = num
+            count++
+        } else if num == res {
+            count++
+        } else {
+            count--
         }
     }
-    return major
+    return res
 }
 ```

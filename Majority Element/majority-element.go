@@ -1,15 +1,16 @@
 func majorityElement(nums []int) int {
-    m := map[int]int{}
+    count := -1
+    res := -1
+
     for _, num := range nums {
-        m[num]++
-    }
-    max := -1
-    major := -1
-    for key, val := range m {
-        if val > max {
-            max = val
-            major = key
+        if count < 0 {
+            res = num
+            count++
+        } else if num == res {
+            count++
+        } else {
+            count--
         }
     }
-    return major
+    return res
 }
