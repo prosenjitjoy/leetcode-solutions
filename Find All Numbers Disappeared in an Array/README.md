@@ -22,27 +22,21 @@ Given an array `nums` of `n` integers where `nums[i]` is in the range `[1, n]`, 
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/948415767/)
+# [Solution in go](https://leetcode.com/submissions/detail/948419148/)
 
 ```go
 func findDisappearedNumbers(nums []int) []int {
     ans := []int{}
+    found := make([]bool, len(nums))
+
     for _, num := range nums {
-        nums[abs(num)-1] = abs(nums[abs(num)-1]) * -1
+        found[num-1] = true
     }
-    for idx, num := range nums {
-        if num > 0 {
-            ans = append(ans, idx+1)
+    for i, v := range found {
+        if v == false {
+            ans = append(ans, i+1)
         }
     }
     return ans
-}
-
-func abs(num int) int {
-    if num < 0 { 
-        return num * -1
-    } else {
-        return num
-    }
 }
 ```
