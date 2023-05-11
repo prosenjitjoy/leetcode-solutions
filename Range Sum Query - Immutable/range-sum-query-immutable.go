@@ -1,17 +1,23 @@
 type NumArray struct {
-    nums []int
+    psum []int
 }
 
 func Constructor(nums []int) NumArray {
+    psum := make([]int, len(nums))
+    psum[0] = nums[0]
+
+    for i:=1; i<len(nums); i++ {
+        psum[i] = psum[i-1] + nums[i]
+    }
+    fmt.Println(psum)
     return NumArray{
-        nums: nums,
+        psum: psum,
     }
 }
 
 func (this *NumArray) SumRange(left int, right int) int {
-    sum := 0
-    for i:=left; i<=right; i++ {
-        sum += this.nums[i]
+    if left - 1 < 0 {
+        return this.psum[right]
     }
-    return sum
+    return this.psum[right] - this.psum[left-1]
 }
