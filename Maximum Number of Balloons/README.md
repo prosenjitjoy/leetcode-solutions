@@ -33,7 +33,7 @@ You can use each character in `text` **at most once**. Return the maximum number
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/948442383/)
+# [Solution in go](https://leetcode.com/submissions/detail/948444737/)
 
 ```go
 func maxNumberOfBalloons(text string) int {
@@ -46,7 +46,7 @@ func maxNumberOfBalloons(text string) int {
     for _, v := range match {
         m[v]++
     }
-    min := len(text)
+    min := math.MaxInt
     for k, v := range m {
         val, ok := freq[k]
         if !ok {

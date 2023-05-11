@@ -8,7 +8,7 @@ func maxNumberOfBalloons(text string) int {
     for _, v := range match {
         m[v]++
     }
-    min := len(text)
+    min := math.MaxInt
     for k, v := range m {
         val, ok := freq[k]
         if !ok {
