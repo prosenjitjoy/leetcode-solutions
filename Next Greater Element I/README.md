@@ -38,29 +38,29 @@ Return _an array_ `ans` _of length_ `nums1.length` _such that_ `ans[i]` _is the 
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/948198894/)
+# [Solution in go](https://leetcode.com/submissions/detail/948262927/)
 
 ```go
 func nextGreaterElement(nums1 []int, nums2 []int) []int {
     m := map[int]int{}
-    arr := []int{}
+    res := make([]int, len(nums1))
+    st := []int{}
 
-    for i, v := range nums2 {
-        m[v] = i
+    for idx, num := range nums1 {
+        m[num] = idx
+        res[idx] = -1
     }
-    for _, num := range nums1 {
-        found := false
-        for i:=m[num]+1; i<len(nums2); i++ {
-            if nums2[i] > num {
-                arr = append(arr, nums2[i])
-                found = true
-                break
-            }
+
+    for _, num := range nums2 {
+        for len(st)>0 && num > st[len(st)-1] {
+            res[m[st[len(st)-1]]] = num
+            st = st[:len(st)-1]
         }
-        if !found {
-            arr = append(arr, -1)
+        if _, ok := m[num]; ok {
+            st = append(st, num)
         }
     }
-    return arr
+
+    return res
 }
 ```
