@@ -25,7 +25,7 @@ You must solve the problem **without using any built-in** functions in `O(nlog(n
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/956104303/)
+# [Solution in go](https://leetcode.com/submissions/detail/956104760/)
 
 ```go
 func merge(left, right []int) []int {
@@ -43,11 +43,13 @@ func merge(left, right []int) []int {
         }
     }
 
-    for ; i<len(left); i++ {
+    for i<len(left) {
         final = append(final, left[i])
+        i++
     }
-    for ; j<len(right); j++ {
+    for j<len(right) {
         final = append(final, right[j])
+        j++
     }
 
     return final

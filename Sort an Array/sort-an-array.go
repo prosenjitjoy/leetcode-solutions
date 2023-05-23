@@ -13,11 +13,13 @@ func merge(left, right []int) []int {
         }
     }
 
-    for ; i<len(left); i++ {
+    for i<len(left) {
         final = append(final, left[i])
+        i++
     }
-    for ; j<len(right); j++ {
+    for j<len(right) {
         final = append(final, right[j])
+        j++
     }
 
     return final
