@@ -41,7 +41,6 @@ func (this *MyHashMap) Put(key int, value int)  {
             cur.next.val = value
             return
         }
-
         cur = cur.next
     }
 
@@ -55,7 +54,6 @@ func (this *MyHashMap) Get(key int) int {
         if cur.next.key == key {
             return cur.next.val
         }
-        
         cur = cur.next
     }
 
@@ -70,7 +68,6 @@ func (this *MyHashMap) Remove(key int)  {
             cur.next = cur.next.next
             return
         }
-
         cur = cur.next
     }
 }

@@ -36,7 +36,7 @@ myHashMap.get(2);    // return -1 (i.e., not found), The map is now [[1,1]]
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/956075758/)
+# [Solution in go](https://leetcode.com/submissions/detail/956076386/)
 
 ```go
 type node struct {
@@ -82,7 +82,6 @@ func (this *MyHashMap) Put(key int, value int)  {
             cur.next.val = value
             return
         }
-
         cur = cur.next
     }
 
@@ -96,7 +95,6 @@ func (this *MyHashMap) Get(key int) int {
         if cur.next.key == key {
             return cur.next.val
         }
-        
         cur = cur.next
     }
 
@@ -111,7 +109,6 @@ func (this *MyHashMap) Remove(key int)  {
             cur.next = cur.next.next
             return
         }
-
         cur = cur.next
     }
 }
