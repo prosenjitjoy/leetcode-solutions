@@ -36,7 +36,7 @@ myHashMap.get(2);    // return -1 (i.e., not found), The map is now [[1,1]]
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/956077760/)
+# [Solution in go](https://leetcode.com/submissions/detail/956077880/)
 
 ```go
 type node struct {
@@ -58,7 +58,7 @@ type MyHashMap struct {
 }
 
 func Constructor() MyHashMap {
-    hsize := 1000
+    hsize := 1250
     array := make([]*node, hsize)
 
     for i:=0; i<hsize; i++ {

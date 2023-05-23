@@ -17,7 +17,7 @@ type MyHashMap struct {
 }
 
 func Constructor() MyHashMap {
-    hsize := 1000
+    hsize := 1250
     array := make([]*node, hsize)
 
     for i:=0; i<hsize; i++ {
