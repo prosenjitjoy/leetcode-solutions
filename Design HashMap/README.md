@@ -36,7 +36,7 @@ myHashMap.get(2);    // return -1 (i.e., not found), The map is now [[1,1]]
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/956077880/)
+# [Solution in go](https://leetcode.com/submissions/detail/956077989/)
 
 ```go
 type node struct {
