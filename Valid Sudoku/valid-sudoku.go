@@ -21,15 +21,21 @@ func isValidSudoku(board [][]byte) bool {
                     box[k] = map[byte]bool{}
                 }
 
-                _, ok1 := row[i][board[i][j]]
-                _, ok2 := col[j][board[i][j]]
-                _, ok3 := box[k][board[i][j]]
-
-                if ok1 || ok2 || ok3 {
+                if _, ok := row[i][board[i][j]]; ok {
                     return false
                 } else {
                     row[i][board[i][j]] = true
+                }
+
+                if _, ok := col[j][board[i][j]]; ok {
+                    return false
+                } else {
                     col[j][board[i][j]] = true
+                }
+
+                if _, ok := box[k][board[i][j]]; ok {
+                    return false
+                } else {
                     box[k][board[i][j]] = true
                 }
             }
