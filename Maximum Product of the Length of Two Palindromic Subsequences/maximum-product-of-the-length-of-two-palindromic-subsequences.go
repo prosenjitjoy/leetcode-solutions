@@ -9,7 +9,7 @@ func maxProduct(s string) int {
             }
         }
         
-        if subSequence == reverse(subSequence) {
+        if isPalindrome(subSequence) {
             palindrome[mask] = len(subSequence)
         }
     }
@@ -28,10 +28,11 @@ func maxProduct(s string) int {
     return max
 }
 
-func reverse(s string) string {
-    byteString := []rune(s)
-    for i,j := 0, len(byteString)-1; i<j; i,j = i+1, j-1 {
-        byteString[i], byteString[j] = byteString[j], byteString[i]
+func isPalindrome(s string) bool {
+    for i,j := 0, len(s)-1; i<j; i,j = i+1, j-1 {
+        if s[i] != s[j] {
+            return false
+        }
     }
-    return string(byteString)
+    return true
 }
