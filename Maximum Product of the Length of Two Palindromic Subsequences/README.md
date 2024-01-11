@@ -39,7 +39,7 @@ The product of their lengths is: 5 * 5 = 25.
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/1143695628/)
+# [Solution in go](https://leetcode.com/submissions/detail/1143696031/)
 
 ```go
 func maxProduct(s string) int {
@@ -58,16 +58,18 @@ func maxProduct(s string) int {
         }
     }
 
-    res := 0
+    max := 0
     for k1, v1 := range palindrome {
         for k2, v2 := range palindrome {
             if k1 & k2 == 0 {
-                res = max(res, v1 * v2)
+                if v1 * v2 > max {
+                    max = v1 * v2
+                }
             }
         }
     }
 
-    return res
+    return max
 }
 
 func isPalindrome(s []rune) bool {
