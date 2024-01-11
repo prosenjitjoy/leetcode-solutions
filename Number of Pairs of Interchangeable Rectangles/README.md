@@ -35,11 +35,11 @@ Return _the **number** of pairs of **interchangeable** rectangles in_ `rectangle
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/1143292962/)
+# [Solution in go](https://leetcode.com/submissions/detail/1143294486/)
 
 ```go
 func interchangeableRectangles(rectangles [][]int) int64 {
-    ratio := map[float64]int{}
+    ratio := map[float64]int64{}
     for _, rectangle := range rectangles {
         ratio[float64(rectangle[0])/float64(rectangle[1])]++
     }
@@ -47,10 +47,11 @@ func interchangeableRectangles(rectangles [][]int) int64 {
     var res int64
     for _, v := range ratio {
         if v > 0 {
-            res += int64((v * (v-1)) / 2)
+            res += (v * (v-1)) / 2
         }
     }
 
     return res
 }
+
 ```
