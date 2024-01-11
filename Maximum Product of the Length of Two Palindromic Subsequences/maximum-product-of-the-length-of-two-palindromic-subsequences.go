@@ -14,18 +14,16 @@ func maxProduct(s string) int {
         }
     }
 
-    max := 0
+    res := 0
     for k1, v1 := range palindrome {
         for k2, v2 := range palindrome {
             if k1 & k2 == 0 {
-                if v1 * v2 > max {
-                    max = v1 * v2
-                }
+                res = max(res, v1 * v2)
             }
         }
     }
 
-    return max
+    return res
 }
 
 func isPalindrome(s []rune) bool {
