@@ -1,49 +1,36 @@
 func findAnagrams(s string, p string) []int {
-    var res []int
-    if len(p) > len(s) {
+    res := []int{}
+    sLen := len(s)
+    pLen := len(p)
+
+    if pLen > sLen {
         return res
     }
 
-    sCount := map[byte]int{}
-    pCount := map[byte]int{}
+    sCount := make([]int, 26)
+    pCount := make([]int, 26)
 
-    for i:=0; i<len(p); i++ {
-        pCount[p[i]]++
-        sCount[s[i]]++
+    for i:=0; i<pLen; i++ {
+        pCount[p[i]-'a']++
+        sCount[s[i]-'a']++
     }
 
     left := 0
-    if isEqual(pCount, sCount) {
+    if slices.Equal(pCount, sCount) {
         res = append(res, left)
     }
+    sCount[s[left]-'a']--
+    left++
 
-    for right:=len(p); right<len(s); right++ {
-        sCount[s[right]]++
-        sCount[s[left]]--
+    for right:=pLen; right<sLen; right++ {
+        sCount[s[right]-'a']++
 
-        if sCount[s[left]] == 0 {
-            delete(sCount, s[left])
-        }
-
-        left++
-        if isEqual(pCount, sCount) {
+        if slices.Equal(pCount, sCount) {
             res = append(res, left)
         }
+        sCount[s[left]-'a']--
+        left++
     }
 
     return res
-}
-
-func isEqual(m1, m2 map[byte]int) bool {
-    if len(m1) != len(m2) {
-        return false
-    }
-
-    for k, v := range m1 {
-        if w, ok := m2[k]; !ok || w != v {
-            return false
-        }
-    }
-
-    return true
 }
