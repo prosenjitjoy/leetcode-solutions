@@ -3,7 +3,7 @@ func findAnagrams(s string, p string) []int {
     if len(p) > len(s) {
         return res
     }
-    
+
     sCount := map[byte]int{}
     pCount := map[byte]int{}
 
@@ -13,7 +13,7 @@ func findAnagrams(s string, p string) []int {
     }
 
     left := 0
-    if reflect.DeepEqual(pCount, sCount) {
+    if isEqual(pCount, sCount) {
         res = append(res, left)
     }
 
@@ -26,10 +26,24 @@ func findAnagrams(s string, p string) []int {
         }
 
         left++
-        if reflect.DeepEqual(pCount, sCount) {
+        if isEqual(pCount, sCount) {
             res = append(res, left)
         }
     }
 
     return res
+}
+
+func isEqual(m1, m2 map[byte]int) bool {
+    if len(m1) != len(m2) {
+        return false
+    }
+
+    for k, v := range m1 {
+        if w, ok := m2[k]; !ok || w != v {
+            return false
+        }
+    }
+
+    return true
 }
