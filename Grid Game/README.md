@@ -50,18 +50,19 @@ The second robot will collect 0 + 1 + 3 + 3 + 0 = 7 points.
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/1144367265/)
+# [Solution in go](https://leetcode.com/submissions/detail/1144368517/)
 
 ```go
 func gridGame(grid [][]int) int64 {
-    for i:=1; i<len(grid[0]); i++ {
+    n := len(grid[0])
+    for i:=1; i<n; i++ {
         grid[0][i] += grid[0][i-1]
         grid[1][i] += grid[1][i-1]
     }
 
     var res int64 = math.MaxInt64
-    for i:=0; i<len(grid[0]); i++ {
-        top := grid[0][len(grid[0])-1] - grid[0][i]
+    for i:=0; i<n; i++ {
+        top := grid[0][n-1] - grid[0][i]
         var bottom int
         if i>0 {
             bottom = grid[1][i-1]
