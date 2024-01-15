@@ -42,7 +42,7 @@ A **good subarray** is a subarray where:
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/1147270864/)
+# [Solution in go](https://leetcode.com/submissions/detail/1147272685/)
 
 ```go
 func checkSubarraySum(nums []int, k int) bool {
@@ -52,12 +52,10 @@ func checkSubarraySum(nums []int, k int) bool {
     for i, num := range nums {
         cumSum += num
         rem := cumSum%k
-        if v, ok := m[rem]; ok {
-            if i-v > 1 {
-                return true
-            }
-        } else {
+        if _, ok := m[rem]; !ok {
             m[rem] = i
+        } else if i - m[rem] > 1 {
+            return true
         }
     }
 
