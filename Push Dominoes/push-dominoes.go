@@ -1,6 +1,7 @@
 func pushDominoes(dominoes string) string {
     line := []byte(dominoes)
     queue := Queue{}
+    N := len(line)
 
     for i, ch := range line {
         if ch != '.' {
@@ -17,8 +18,8 @@ func pushDominoes(dominoes string) string {
                 line[d.index-1] = 'L'
             }
         } else {
-            if d.index+1 < len(line) && line[d.index+1] == '.' {
-                if d.index+2 < len(line) && line[d.index+2] == 'L' {
+            if d.index+1 < N && line[d.index+1] == '.' {
+                if d.index+2 < N && line[d.index+2] == 'L' {
                     queue.Dequeue()
                 } else {
                     queue.Enqueue(pair{index: d.index+1, value: 'R'})
