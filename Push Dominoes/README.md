@@ -39,36 +39,31 @@ Return _a string representing the final state_.
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/1147939339/)
+# [Solution in go](https://leetcode.com/submissions/detail/1147942789/)
 
 ```go
 func pushDominoes(dominoes string) string {
     line := []byte(dominoes)
     queue := Queue{}
-    N := len(line)
 
-    for i, ch := range line {
-        if ch != '.' {
-            queue.Enqueue(pair{index: i, value: ch})
+    for i, v := range line {
+        if v != '.' {
+            queue.Enqueue(pair{index: i, value: v})
         }
     }
 
     for !queue.Empty() {
         d := queue.Dequeue()
 
-        if d.value == 'L' {
-            if d.index > 0 && line[d.index-1] == '.' {
-                queue.Enqueue(pair{index: d.index-1, value: 'L'})
-                line[d.index-1] = 'L'
-            }
-        } else {
-            if d.index+1 < N && line[d.index+1] == '.' {
-                if d.index+2 < N && line[d.index+2] == 'L' {
-                    queue.Dequeue()
-                } else {
-                    queue.Enqueue(pair{index: d.index+1, value: 'R'})
-                    line[d.index+1] = 'R'
-                }
+        if d.value == 'L' && d.index > 0 && line[d.index-1] == '.' {
+            queue.Enqueue(pair{index: d.index-1, value: 'L'})
+            line[d.index-1] = 'L'
+        } else if d.value == 'R' && d.index+1 < len(line) && line[d.index+1] == '.' {
+            if d.index+2 < len(line) && line[d.index+2] == 'L' {
+                queue.Dequeue()
+            } else {
+                queue.Enqueue(pair{index: d.index+1, value: 'R'})
+                line[d.index+1] = 'R'
             }
         }
     }
