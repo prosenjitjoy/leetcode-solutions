@@ -25,7 +25,7 @@ Given a string `s` that represents a **DNA sequence**, return all the **`10`\-le
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/1148906927/)
+# [Solution in go](https://leetcode.com/submissions/detail/1148908817/)
 
 ```go
 func findRepeatedDnaSequences(s string) []string {
