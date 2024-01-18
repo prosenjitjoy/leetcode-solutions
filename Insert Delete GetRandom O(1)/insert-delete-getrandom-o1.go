@@ -5,7 +5,7 @@ type RandomizedSet struct {
 
 func Constructor() RandomizedSet {
     return RandomizedSet{
-        Map: make(map[int]int),
+        Map: map[int]int{},
         List: []int{},
     }
 }
@@ -21,10 +21,9 @@ func (rs *RandomizedSet) Insert(val int) bool {
 
 func (rs *RandomizedSet) Remove(val int) bool {
     if v, ok := rs.Map[val]; ok {
-        lastIdx := len(rs.List)-1
-        lastVal := rs.List[lastIdx]
+        lastVal := rs.List[len(rs.List)-1]
         rs.List[v] = lastVal
-        rs.List = rs.List[:lastIdx]
+        rs.List = rs.List[:len(rs.List)-1]
         rs.Map[lastVal] = v
         delete(rs.Map, val)
         return true
