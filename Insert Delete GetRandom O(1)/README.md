@@ -36,7 +36,7 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/1149959544/)
+# [Solution in go](https://leetcode.com/submissions/detail/1149960875/)
 
 ```go
 type RandomizedSet struct {
