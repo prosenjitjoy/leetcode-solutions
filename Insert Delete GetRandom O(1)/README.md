@@ -36,7 +36,7 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/1149962555/)
+# [Solution in go](https://leetcode.com/submissions/detail/1149964709/)
 
 ```go
 type RandomizedSet struct {
@@ -62,9 +62,10 @@ func (rs *RandomizedSet) Insert(val int) bool {
 
 func (rs *RandomizedSet) Remove(val int) bool {
     if v, ok := rs.Map[val]; ok {
-        lastVal := rs.List[len(rs.List)-1]
+        lastIdx := len(rs.List)-1
+        lastVal := rs.List[lastIdx]
         rs.List[v] = lastVal
-        rs.List = rs.List[:len(rs.List)-1]
+        rs.List = rs.List[:lastIdx]
         rs.Map[lastVal] = v
         delete(rs.Map, val)
         return true

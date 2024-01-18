@@ -21,9 +21,10 @@ func (rs *RandomizedSet) Insert(val int) bool {
 
 func (rs *RandomizedSet) Remove(val int) bool {
     if v, ok := rs.Map[val]; ok {
-        lastVal := rs.List[len(rs.List)-1]
+        lastIdx := len(rs.List)-1
+        lastVal := rs.List[lastIdx]
         rs.List[v] = lastVal
-        rs.List = rs.List[:len(rs.List)-1]
+        rs.List = rs.List[:lastIdx]
         rs.Map[lastVal] = v
         delete(rs.Map, val)
         return true
