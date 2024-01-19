@@ -5,5 +5,5 @@ func hasAllCodes(s string, k int) bool {
         set[s[i:i+k]] = true
     }
 
-    return len(set) == 1 << k
+    return len(set) == 1<<k
 }
