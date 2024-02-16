@@ -31,7 +31,7 @@ Given a binary string `s` and an integer `k`, return `true` _if every binary cod
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/1150661098/)
+# [Solution in go](https://leetcode.com/submissions/detail/1176865731/)
 
 ```go
 func hasAllCodes(s string, k int) bool {
@@ -41,6 +41,6 @@ func hasAllCodes(s string, k int) bool {
         set[s[i:i+k]] = true
     }
 
-    return len(set) == 1<<k
+    return int(math.Pow(2, float64(k))) == len(set)
 }
 ```
