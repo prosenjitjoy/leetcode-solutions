@@ -38,7 +38,7 @@ Return `signFunc(product)`.
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/1180559637/)
+# [Solution in go](https://leetcode.com/submissions/detail/1180559930/)
 
 ```go
 func arraySign(nums []int) int {
