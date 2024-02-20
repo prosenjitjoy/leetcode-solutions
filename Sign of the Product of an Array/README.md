@@ -38,25 +38,20 @@ Return `signFunc(product)`.
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/1180553784/)
+# [Solution in go](https://leetcode.com/submissions/detail/1180556903/)
 
 ```go
 func arraySign(nums []int) int {
-    negativeCount := 0
-    n := len(nums)
-
-    for i:=0; i<n; i++ {
+    sign := 1
+    
+    for i := range nums {
         if nums[i] == 0 {
             return 0
         } else if nums[i] < 0 {
-            negativeCount++
+            sign *= -1
         }
     }
 
-    if negativeCount%2 == 0 {
-        return 1
-    } else {
-        return -1
-    }
+    return sign
 }
 ```
