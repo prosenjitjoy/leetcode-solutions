@@ -30,22 +30,22 @@ The only valid partition is ("s","s","s","s","s","s").
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/1184650166/)
+# [Solution in go](https://leetcode.com/submissions/detail/1184651923/)
 
 ```go
 func partitionString(s string) int {
-    curSet := map[rune]bool{}
-    res := 1
+    seen := [26]bool{}
+    count := 1
 
     for _, v := range s {
-        if curSet[v] {
-            res++
-            curSet = map[rune]bool{}
+        if seen[v-'a'] {
+            count++
+            seen = [26]bool{}
         }
 
-        curSet[v] = true
+        seen[v-'a'] = true
     }
 
-    return res
+    return count
 }
 ```
