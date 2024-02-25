@@ -36,10 +36,6 @@ func (this *UndergroundSystem) CheckOut(id int, stationName string, t int)  {
         start: station.name,
         end: stationName,
     }
-
-    if _, ok := this.totalTimeMap[route]; !ok {
-        this.totalTimeMap[route] = [2]int{0,0}
-    }
     
     total := this.totalTimeMap[route]
     total[0] += t - station.time

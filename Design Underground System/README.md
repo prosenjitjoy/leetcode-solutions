@@ -74,7 +74,7 @@ undergroundSystem.getAverageTime("Leyton", "Paradise"); // return 6.66667, (5 + 
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/1185674033/)
+# [Solution in go](https://leetcode.com/submissions/detail/1185674559/)
 
 ```go
 type stationInfo struct{
@@ -114,10 +114,6 @@ func (this *UndergroundSystem) CheckOut(id int, stationName string, t int)  {
     route := travelInfo{
         start: station.name,
         end: stationName,
-    }
-
-    if _, ok := this.totalTimeMap[route]; !ok {
-        this.totalTimeMap[route] = [2]int{0,0}
     }
     
     total := this.totalTimeMap[route]
