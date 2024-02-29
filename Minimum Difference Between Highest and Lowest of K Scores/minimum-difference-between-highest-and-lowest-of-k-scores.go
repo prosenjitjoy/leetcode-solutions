@@ -1,9 +1,11 @@
 func minimumDifference(nums []int, k int) int {
     sort.Ints(nums)
-    res := math.MaxInt
+    l,r := 0,k-1
+    res := nums[r] - nums[l]
     
-    for l,r := 0,k-1; r < len(nums); l,r = l+1,r+1 {
+    for r < len(nums) {
         res = min(res, nums[r] - nums[l])
+        l,r = l+1,r+1
     }
 
     return res
