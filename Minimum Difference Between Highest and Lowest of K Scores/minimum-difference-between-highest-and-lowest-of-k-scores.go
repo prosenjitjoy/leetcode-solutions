@@ -1,5 +1,5 @@
 func minimumDifference(nums []int, k int) int {
-    sort.Ints(nums)
+    nums = mergeSort(nums)
     l,r := 0,k-1
     res := nums[r] - nums[l]
     

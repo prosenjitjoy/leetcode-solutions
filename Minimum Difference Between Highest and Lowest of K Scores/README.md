@@ -36,11 +36,11 @@ The minimum possible difference is 2.
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/1189479263/)
+# [Solution in go](https://leetcode.com/submissions/detail/1189479486/)
 
 ```go
 func minimumDifference(nums []int, k int) int {
-    sort.Ints(nums)
+    nums = mergeSort(nums)
     l,r := 0,k-1
     res := nums[r] - nums[l]
     
