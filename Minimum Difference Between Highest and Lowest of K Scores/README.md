@@ -36,7 +36,7 @@ The minimum possible difference is 2.
 
 <br />
 
-# [Solution in go](https://leetcode.com/submissions/detail/1189476464/)
+# [Solution in go](https://leetcode.com/submissions/detail/1189477176/)
 
 ```go
 func minimumDifference(nums []int, k int) int {
@@ -44,9 +44,7 @@ func minimumDifference(nums []int, k int) int {
     res := math.MaxInt
     
     for l,r := 0,k-1; r < len(nums); l,r = l+1,r+1 {
-        if nums[r] - nums[l] < res {
-            res = nums[r] - nums[l]
-        }
+        res = min(res, nums[r] - nums[l])
     }
 
     return res
